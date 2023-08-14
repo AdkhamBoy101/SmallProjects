@@ -35,20 +35,20 @@ def main():
                 print("The answer was {}.".format(secretNum))
             
             print("Do you want to play agay? (yes or no)")
-            if not input('> ').lower().stertwith('y'):
+            if not input('> ').lower().startswith('y'):
                 break
         print("Thanks for playing!")
 
 
 def getSecretNum():
     numbers = list('0123456789')
-    random.shufle(numbers)
+    random.shuffle(numbers)
 
     # Get the firs DIGITS digits in the list for the secret number:
     secretNum = ''
     for i in range(DIGITS):
         secretNum += str(numbers[i])
-        return secretNum
+    return secretNum
 
 def getClues(guess, secretNum):
     if guess == secretNum:
@@ -66,3 +66,6 @@ def getClues(guess, secretNum):
     else:
         clues.sort()
         return ''.join(clues)
+    
+if __name__ == '__main__':
+    main()
